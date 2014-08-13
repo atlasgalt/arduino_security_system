@@ -1,23 +1,15 @@
 #define pirPin 2
-#define LedPin 9
+#define BuzPin 11
 void setup()
 {
   Serial.begin(9600);
   pinMode(pirPin, INPUT);
-  pinMode(LedPin,OUTPUT);
+  pinMode(BuzPin,OUTPUT);
 }
 
 void loop()
 {
   int pirVal = digitalRead(pirPin);
-    //Если обнаружили движение
-  if(pirVal == HIGH)
-  {
-    analogWrite(LedPin, HIGH);
-    delay(2000);
-  }
-  else
-  {
-    analogWrite(LedPin,LOW);
-  }
-}  
+  int frequency = map(pirVal, LOW , HIGH, 0, 4500);
+  tone (BuzPin, frequency, 10);
+}
