@@ -10,6 +10,6 @@ void setup()
 void loop()
 {
   bool pirVal = digitalRead(pirPin);
-  int frequency = map(pirVal, LOW , HIGH, 0, 4500);
+  var frequency = map(pirVal, LOW , HIGH, 0, 4500);
   tone (BuzPin, frequency, 10);
 }
