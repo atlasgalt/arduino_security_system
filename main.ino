@@ -9,7 +9,7 @@ void setup()
 
 void loop()
 {
-  int pirVal = digitalRead(pirPin);
+  bool pirVal = digitalRead(pirPin);
   int frequency = map(pirVal, LOW , HIGH, 0, 4500);
   tone (BuzPin, frequency, 10);
 }
